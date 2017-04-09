@@ -36,7 +36,7 @@ public class ClienteDAOImplTest {
 		
 		try{
 			cliente = new Cliente(); //Crea un objeto tipo cliente
-			cliente.setCedula("1r38"); 
+			cliente.setCedula("1r388"); 
 			cliente.setNombres("Johanna");
 			cliente.setApellidos("Arenas");
 			cliente.setEmail("Lalala");
