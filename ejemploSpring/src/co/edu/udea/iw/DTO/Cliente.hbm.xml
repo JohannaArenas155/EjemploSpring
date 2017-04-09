@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/03/2017 01:20:40 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.edu.udea.iw.DTO.Cliente" table="clientes">
+        <id name="Cedula" type="java.lang.String" access="field">
+            <column name="Cedula" length="15"/>
+            <generator class="assigned" />
+        </id>
+        <property name="Nombres" type="java.lang.String">
+            <column name="Nombres" length="30" not-null ="true"  />
+        </property>
+        <property name="Apellidos" type="java.lang.String">
+            <column name="Apellidos" length="30" not-null ="true"  />
+        </property>
+        <property name="Email" type="java.lang.String">
+            <column name="Email" length="120" not-null ="true"  />
+        </property>
+        <property name="FechaCreacion" type="java.util.Date">
+            <column name="FechaCreacion" not-null ="false"  />
+        </property>
+        <property name="FechaModificacion" type="java.util.Date">
+            <column name="FechaModificacion" not-null ="false"  />
+        </property>
+        <property name="FechaEliminacion" type="java.util.Date">
+            <column name="FechaEliminacion" not-null ="false"  />
+        </property>
+        <property name="Eliminado" type="java.lang.Boolean">
+            <column name="Eliminado" not-null ="false"  />
+        </property>
+
+       	<many-to-one class ="co.edu.udea.iw.DTO.Usuario" name="UsuarioCrea" lazy = "false" fetch = "join">
+        <column name="UsuarioCrea" length="15" not-null ="false"  />
+        </many-to-one>
+         <many-to-one class ="co.edu.udea.iw.DTO.Usuario" name="UsuarioModifica" lazy = "false" fetch = "join">
+        <column name="UsuarioModifica" length="15" not-null ="false"  />
+        </many-to-one>
+         <many-to-one class ="co.edu.udea.iw.DTO.Usuario" name="UsuarioElimina" lazy = "false" fetch = "join">
+          <column name="UsuarioElimina" length="15" not-null ="false"  />
+        </many-to-one>
+        
+<!--            <set name="direcciones">  -->
+<!--         	<key column="Cliente"/>  -->
+<!--          		<one-to-many class="co.edu.udea.iw.DTO.Direcciones"/>  -->
+<!--        </set>  -->
+    </class>
+</hibernate-mapping>
